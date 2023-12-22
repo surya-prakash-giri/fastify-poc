@@ -1,4 +1,6 @@
 import Fastify from 'fastify'
+import 'dotenv/config'
+
 import userRoutes from '../api/users/usersRoutes.js'
 import baseRoute from '../api/core/base.js'
 import db from '../ext/db.js'
@@ -24,7 +26,7 @@ const start = async () => {
     fastify.log.info(`server listening on ${PORT}`)
     //connect to db
     const connection = await fastify.pg.connect();
-    fastify.log.info(`DB connected ${JSON.stringify(connection)}`)
+    fastify.log.info(`DB connected ${JSON.stringify(connection.connectionParameters)}`)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)

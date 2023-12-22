@@ -1,0 +1,9 @@
+{
+    "base_url": "https://api.fastify-poc.com",
+    "db": {
+        "user": "postgres",
+        "host": "https://api.fastify-poc.com",
+        "port": 5432,
+        "name": "postgres"
+    }
+}
