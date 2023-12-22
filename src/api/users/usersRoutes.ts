@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
-import { getUsers, getUser, addUser } from "./userControllers.js"
+import { getUsers, getUser, addUser, removeUser, updateUser } from "./userControllers.js"
 import User from "./userModel.js"
 
 const getUsersOpts = {
@@ -32,6 +32,12 @@ async function userRoutes(fastify: FastifyInstance, options: Object) {
 
   // Add User
   fastify.post('/users', addUser)
+
+  // Remove User
+  fastify.delete('/users/:id', removeUser)
+
+  // Update User
+  fastify.put('/users/:id', updateUser)
 }
 
 export default userRoutes;
